@@ -1,11 +1,11 @@
 # Developer Mode Chrome Extension
 
-`content.js` _(frontend)_ adds a listener for `The word was` in the game chat div. <br/>
-The handler will sendMessage to `background.js` _(backend)_ where [chrome.tabs](<[url](https://developer.chrome.com/docs/extensions/reference/api/tabs)>) is defined and has permissions to captureScreenshot.
+`frontend/content.js` registers a listener for `The word was` in the game chat div. <br/>
+The listener handler will `chrome.runtime.sendMessage` to `backend/background.js` where [chrome.tabs](<[url](https://developer.chrome.com/docs/extensions/reference/api/tabs)>) is defined and has permissions to captureScreenshot.
 
-`background.js` is defined using the `service_worker` key of the Manifest V3, but does not register an actual service worker.
+_`background.js` is defined using the `service_worker` key of the Manifest V3, but does not register an actual service worker._
 
-Install
+## Install
 
 - download this code (unzip if needed). Move the folder somewhere stable and easy to find.
 - in chrome, open `chrome://extensions/`
