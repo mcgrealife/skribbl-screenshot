@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Skribble Screenshot",
   "version": "1.0",
-  "description": "Capture a screenshot when Skribble posts 'The word was'. Right click extension icon and 'Inspect Popup' to view background logs.",
+  "description": "Capture a screenshot when Skribble posts 'The word was'.",
   "permissions": [
     "activeTab",
     "tabs",
