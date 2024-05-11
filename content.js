@@ -8,9 +8,10 @@ const logMessageWhenWordFound = function (mutationsList, observer) {
         // if (node.tagName === 'SPAN' && node.textContent.includes("The word was")) {
         if (node.textContent.includes("The word was")) {
           const word = node.textContent.split("The word was ")[1]
+          console.log('the word was', word, '.', 'notifying chrome.runtime.sendMessage')
           // Send message to background script to capture screenshot
           chrome.runtime.sendMessage({ action: "captureScreenshot", word })
-          console.log('message sent to background.js')
+          console.log('message sent to background.js. Disconnecting this observer.')
           observer.disconnect() // Disconnect the observer after capturing the screenshot
         }
       })
