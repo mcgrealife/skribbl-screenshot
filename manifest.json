@@ -5,7 +5,11 @@
   "description": "Capture a screenshot when specific text appears.",
   "permissions": [
     "activeTab",
-    "tabs"
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://skribbl.io/"
   ],
   "background": {
     "service_worker": "background.js"

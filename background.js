@@ -1,3 +1,4 @@
+console.log("Before adding message listener")
 // Access chrome APIs here
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log('background listener handler messae', message)
@@ -20,3 +21,5 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     })
   }
 })
+
+console.log("after adding message listener")
