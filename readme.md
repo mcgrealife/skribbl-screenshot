@@ -8,9 +8,9 @@ Screenshots require permissions, thus chrome extension.
 
 `frontend/content.js` observes the `#game-chat` with a listener that will check if the text contains `The word was`. If true, will notify the backend via `chrome.runtime.sendMessage()`. The `backend/background.js` chrome object contains [chrome.tabs](<[url](https://developer.chrome.com/docs/extensions/reference/api/tabs)>) and has permissions to `chrome.tabs.captureVisibleTab`.
 
-</details>
-
 _`background.js` is defined using the `service_worker` key of the Manifest V3, but does not register an actual service worker._
+
+</details>
 
 ## Install
 
