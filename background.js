@@ -1,25 +1,19 @@
-console.log("Before adding message listener")
 // Access chrome APIs here
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log('background listener handler messae', message)
   if (message.action === "captureScreenshot") {
     // Execute content script in the active tab to capture the screenshot
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const activeTab = tabs[0]
-      console.log('chrome scripting', chrome.scripting)
-      chrome.scripting.executeScript({
-        target: { tabId: activeTab.id },
-        function: () => {
-          chrome.tabs.captureVisibleTab((dataUrl) => {
-            const a = document.createElement('a')
-            a.href = dataUrl
-            a.download = 'screenshot.png'
-            a.click()
-          })
-        },
+      chrome.tabs.captureVisibleTab(activeTab.windowId, { format: "png" }, (dataUrl) => {
+        // Use the chrome.downloads API to download the screenshot
+        chrome.downloads.download({
+          url: dataUrl,
+          filename: 'screenshot.png',
+          saveAs: false  // Change to true if you want to prompt the user to choose the download location
+        }, (downloadId) => {
+          console.log('Download started with ID:', downloadId)
+        })
       })
     })
   }
 })
-
-console.log("after adding message listener")

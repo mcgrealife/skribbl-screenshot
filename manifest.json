@@ -6,10 +6,13 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "scripting"
+    "scripting",
+    "downloads",
+    "storage"
   ],
   "host_permissions": [
-    "https://skribbl.io/"
+    "https://skribbl.io/",
+    "<all_urls>"
   ],
   "background": {
     "service_worker": "background.js"
