@@ -7,7 +7,7 @@
     "activeTab"
   ],
   "background": {
-    "service_worker": "combined_script.js"
+    "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup.html",
@@ -23,7 +23,7 @@
         "<all_urls>"
       ],
       "js": [
-        "combined_script.js"
+        "content.js"
       ]
     }
   ]
