@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         // Use the chrome.downloads API to download the screenshot
         chrome.downloads.download({
           url: dataUrl,
-          filename: 'screenshot.png',
+          filename: `${message.word}-${Date.now().toString()}.png`,
           saveAs: false  // Change to true if you want to prompt the user to choose the download location
         }, (downloadId) => {
           console.log('Download started with ID:', downloadId)
