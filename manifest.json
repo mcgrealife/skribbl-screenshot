@@ -15,11 +15,11 @@
     "<all_urls>"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "backend/background.js"
   },
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
+    "default_popup": "public/popup.html",
+    "default_icon": "public/icon.png"
   },
   "content_scripts": [
     {
@@ -27,7 +27,7 @@
         "<all_urls>"
       ],
       "js": [
-        "content.js"
+        "frontend/content.js"
       ]
     }
   ]
