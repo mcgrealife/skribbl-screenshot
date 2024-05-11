@@ -7,7 +7,8 @@ const logMessageWhenWordFound = function (mutationsList, observer) {
         console.log('checking', node)
         console.log(node.textContent.includes("The word was"))
         // Check if the node is a <span> element and contains the text "The word was"
-        if (node.tagName === 'SPAN' && node.textContent.includes("The word was")) {
+        // if (node.tagName === 'SPAN' && node.textContent.includes("The word was")) {
+        if (node.textContent.includes("The word was")) {
           console.log('the word was!!!')
           // Send message to background script to capture screenshot
           chrome.runtime.sendMessage({ action: "captureScreenshot" })
