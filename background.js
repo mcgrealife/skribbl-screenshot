@@ -1,5 +1,6 @@
 // Access chrome APIs here
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log('background listener handler messae', message)
   if (message.action === "captureScreenshot") {
     // Execute content script in the active tab to capture the screenshot
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
