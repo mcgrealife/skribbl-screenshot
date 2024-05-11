@@ -11,8 +11,7 @@ const logMessageWhenWordFound = function (mutationsList, observer) {
           console.log('the word was', word, '.', 'notifying chrome.runtime.sendMessage')
           // Send message to background script to capture screenshot
           chrome.runtime.sendMessage({ action: "captureScreenshot", word })
-          console.log('message sent to background.js. Disconnecting this observer.')
-          observer.disconnect() // Disconnect the observer after capturing the screenshot
+          console.log('message sent to background.js.')
         }
       })
     }
@@ -27,3 +26,10 @@ const observer = new MutationObserver(logMessageWhenWordFound)
 
 // Start observing the parent element for changes in its child elements
 observer.observe(parentElement, { childList: true })
+
+
+// Disconnect the observer when the tab is closing
+window.onbeforeunload = function () {
+  observer.disconnect()
+  console.log('Observer disconnected. Tab is closing.')
+}
